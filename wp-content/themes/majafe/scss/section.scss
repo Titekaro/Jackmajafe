@@ -1,0 +1,22 @@
+.section {
+  min-height: 100vh;
+}
+
+.section-content-container {
+  max-width: $screen-lg;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+.section-title {
+  text-transform: uppercase;
+}
+
+.section-lead {
+  font-size: 1.22em;
+  line-height: 1.8em;
+}
