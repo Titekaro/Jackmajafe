@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+html, body {
+  font-size: $font-size-base-sm;
+  color: $text-color-base;
+  background-color: $body-bg-color;
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-base-lg;
+  }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4 {
+  font-family: $font-family-headings;
+  font-weight: 300;
+  color: rgba($text-color-base, 1);
+}
+
+h1, .h1 {
+  font-size: $font-size-h1-sm;
+  line-height: 1.1em;
+  margin: 0.67em 0;
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-h1-lg;
+    margin: 1.34em 0;
+  }
+}
+
+h2, .h2 {
+  font-size: $font-size-h2-sm;
+  margin: 0.67em 0;
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-h2-lg;
+    margin: 1.34em 0;
+  }
+}
+
+h3, .h3 {
+  font-size: $font-size-h3-sm;
+  //line-height: ;
+  margin: 0.42em 0;
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-h3-lg;
+    margin: 0.42em 0;
+  }
+}
+
+h4, .h4 {
+  font-size: $font-size-h4-sm;
+  //line-height: ;
+  margin: 0.42em 0;
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-h4-lg;
+    margin: 0.42em 0;
+  }
+}
+
+p {
+  font-family: $font-family-base;
+  font-size: $font-size-base-sm;
+  line-height: 1.45em;
+  font-weight: 300;
+  color: rgba($text-color-base, .8);
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-base-lg;
+  }
+}
+
+.lead {
+  font-size: 1.125em;
+  line-height: 1.55em;
+
+  @media (min-width: $screen-lg) {
+    font-size: 1.2em;
+  }
+}
