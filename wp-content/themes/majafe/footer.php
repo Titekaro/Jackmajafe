@@ -1,4 +1,6 @@
-this is the majafe footer
+<footer>
+    Majafe footer
+</footer>
 
 	</body>
 </html>
