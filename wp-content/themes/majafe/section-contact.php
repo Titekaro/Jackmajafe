@@ -4,7 +4,7 @@
         Get in touch
     </h2>
 
-    <p class="section-lead">
+    <p class="section-lead lead">
         !This is the content of the contact section!
     </p>
 
