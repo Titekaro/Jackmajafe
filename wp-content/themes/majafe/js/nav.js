@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let root = $('html, body');
     let nav = $('.navbar');
     let menu = {
         el: $('.navbar-menu'),
@@ -17,8 +18,14 @@ $(document).ready(function () {
     let isAutoScrolling = false;
     /**
      * Initialize first selected menu item.
+     * But detect if we're not targetting a specific section in the url when refreshing it.
      */
-    menu.item.first().addClass('current');
+    if (window.location.hash) {
+        let target = window.location.hash;
+        menu.item.find('a[href="' + target + '"]').parent().addClass('current');
+    } else {
+        menu.item.first().addClass('current');
+    }
     /**
      * Manage the navbar position when scrolling:
      * Let it stick the top of the page if we're not at the top of the page.
@@ -41,15 +48,15 @@ $(document).ready(function () {
         if (!isAutoScrolling) {
             section.each(function () {
                 let currentScroll = $(window).scrollTop();
-                let sectionPosition = $(this).offset().top;
+                let sectionPosition = $(this).position().top;
 
-                if (sectionPosition < currentScroll) {
+                if (sectionPosition <= currentScroll) {
                     let id = $(this).attr('id');
-                    let activeLink = $('[href$="#' + id + '"]');
-
-                    menu.list.children().removeClass('current');
+                    let activeLink = menu.item.find('a[href="#' + id + '"]');
+                    if (menu.item.hasClass('current')) {
+                        menu.item.removeClass('current');
+                    }
                     activeLink.parent().addClass('current');
-
                 }
             });
         }
@@ -63,10 +70,11 @@ $(document).ready(function () {
         let theSection = selectedSection.find('a').attr('href');
 
         if (isAutoScrolling) {
-            $('html, body').animate({
-                scrollTop: $(theSection).offset().top + 1
+            root.stop().animate({
+                scrollTop: $(theSection).position().top
             }, 1000, function () {
                 isAutoScrolling = false;
+                window.location.hash = theSection;
             });
         }
 
@@ -82,9 +90,31 @@ $(document).ready(function () {
     menu.item.on('click', function (event) {
         event.preventDefault();
         isAutoScrolling = true;
-        menu.list.children().removeClass('current');
+        if (menu.item.hasClass('current')) {
+            menu.item.removeClass('current');
+        }
         $(this).addClass('current');
         scrollToSection($(this));
+    });
+    /**
+     * Add a listener on every link that has a hash, to target not only menu links.
+     */
+    $('a[href^="#"]').on('click', function (event) {
+        event.preventDefault();
+        isAutoScrolling = true;
+
+        let theSection = $(this).attr('href');
+
+        if (isAutoScrolling) {
+            root.stop().animate({
+                scrollTop: $(theSection).position().top
+            }, 1000, function () {
+                isAutoScrolling = false;
+                window.location.hash = theSection;
+            });
+            menu.item.find('a[href="' + theSection + '"]').parent().addClass('current');
+        }
+
     });
 
     /**
