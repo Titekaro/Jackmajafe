@@ -33,9 +33,9 @@ if (!function_exists('majafe_setup')) :
 
                 foreach ($menu_items as $menu_item) {
 
-                    $menu_item_attr_title = sanitize_title($menu_item->attr_title);
+                    $menu_item_title = sanitize_title($menu_item->title);
 
-                    echo '<li class="menu__item"><a href="#' . $menu_item_attr_title . '">' . $menu_item->title . '</a></li>';
+                    echo '<li class="menu__item"><a href="#' . $menu_item_title . '">' . $menu_item->title . '</a></li>';
                 }
 
                 echo '</ul>';
@@ -46,9 +46,9 @@ if (!function_exists('majafe_setup')) :
                     echo '<ul class="menu-social-list">';
 
                     foreach ($rows as $row) :
-                        $name = $row['name'];
-                        $url = $row['url'];
-                        $icon = '<img class="icon icon-' . $name . '" src="' . $row['icon'] . '" alt="' . $name . '">';
+                        $name = $row['social_name'];
+                        $url = $row['social_url'];
+                        $icon = '<img class="icon icon-' . $name . '" src="' . $row['social_icon'] . '" alt="' . $name . '">';
 
                         echo '<li class="social__item"><a href="' . $url . '" target="_blank">' . $icon . '</a></li>';
 
@@ -81,6 +81,7 @@ function majafe_scripts() {
 
         wp_enqueue_script('slider', get_template_directory_uri().'/js/slider.js', array('jquery'), false, false);
         wp_enqueue_script('nav', get_template_directory_uri().'/js/nav.js', array('jquery'), false, false);
+        wp_enqueue_script('dates-slides', get_template_directory_uri().'/js/dates-slides.js', array('jquery'), false, false);
         wp_enqueue_script('jquery');
     }
 }
