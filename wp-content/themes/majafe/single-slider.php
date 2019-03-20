@@ -40,7 +40,7 @@
                 endif;
 
                 if ($slide_btn) :
-                    echo '<a href="' . $slide_btn_link .'" target="_self" class="btn btn-secondary" title="'. $slide_btn_text .'">' . $slide_btn_text . '</a>';
+                    echo '<a href="' . $slide_btn_link .'" target="_blank" class="btn btn-secondary" title="'. $slide_btn_text .'">' . $slide_btn_text . '</a>';
                 endif;
 
                 ?>
