@@ -33,11 +33,10 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: $font-size-h2-sm;
-  margin: 0.67em 0;
+  margin: 1.15em 0;
 
   @media (min-width: $screen-lg) {
     font-size: $font-size-h2-lg;
-    margin: 1.34em 0;
   }
 }
 
