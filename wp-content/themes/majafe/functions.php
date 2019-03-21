@@ -2,9 +2,13 @@
 
 // Load plugins for 'majafe' theme
 include_once('plugins/acf-repeater/acf-repeater.php');
-//include_once('plugins/advanced-custom-fields/acf.php');
 
 if (!function_exists('majafe_setup')) :
+
+    function remove_admin_login_header() {
+        remove_action('wp_head', '_admin_bar_bump_cb');
+    }
+    add_action('get_header', 'remove_admin_login_header');
 
     function menu_majafe() {
         register_nav_menus(array(
@@ -14,7 +18,7 @@ if (!function_exists('majafe_setup')) :
     add_action('init', 'menu_majafe');
 
     // Set up custom menu 'main-menu' and display configured custom fields.
-    function custom_menu_majafe($items) {
+    function custom_menu_majafe() {
         // get whole content of menu (for logo & social content)
         $menu = wp_get_nav_menu_object('main menu');
         $logo = get_field('logo', $menu);
