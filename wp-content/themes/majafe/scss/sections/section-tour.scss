@@ -1,0 +1,28 @@
+.tour-content-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20% top;
+
+  @media (min-width: $screen-xl) {
+    background-position: 20% 20%;
+  }
+}
+
+.tour-content {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.tour-content__intro {
+  flex: 0 0 100%;
+}
+
+.tour-content__dates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 100%;
+  padding: 60px 0px;
+  box-sizing: border-box;
+}

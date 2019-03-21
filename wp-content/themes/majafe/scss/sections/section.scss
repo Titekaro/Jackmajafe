@@ -1,8 +1,11 @@
 .section {
-  min-height: 100vh;
 }
 
 .section-content-container {
+  width: 100%;
+}
+
+.section-content {
   max-width: $screen-lg;
   margin: 0 auto;
   padding: 30px;
@@ -14,6 +17,16 @@
 
 .section-title {
   text-transform: uppercase;
+}
+
+.section-subtitle {
+  font-size: 0.6em;
+  font-weight: 400;
+  text-transform: none;
+
+  @media (min-width: $screen-lg) {
+    font-size: 0.5em;
+  }
 }
 
 .section-lead {

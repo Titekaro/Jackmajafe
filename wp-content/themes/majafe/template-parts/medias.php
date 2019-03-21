@@ -1,4 +1,23 @@
-<div class="section-content-container">
+<?php
+/**
+ * Template Name: Medias
+ *
+ * The template for displaying medias page.
+ *
+ * This is the template that displays the media page by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage majafe
+ * @since majafe 1.0
+ */
+?>
+
+<div class="section-content-container content-medias">
 
     <h2 class="section-title">
         <svg class="icon icon-media" xmlns="http://www.w3.org/2000/svg" width="40.7" height="33.9" viewBox="0 0 40.7 33.9">
