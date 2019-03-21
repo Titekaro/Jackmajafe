@@ -27,7 +27,7 @@ if($menu_items) :
 
             // Re-define the basic template
             if(!$template_page || $template_page == 'default') :
-                include(locate_template('section-page.php'));
+                include(locate_template('template-parts/section.php'));
             endif;
 
         endif;
