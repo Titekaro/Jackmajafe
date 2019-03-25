@@ -54,10 +54,13 @@ echo '<div class="section-content-container tour-content-container" style="backg
         echo '<div class="tour-content__dates">';
 
             if (have_rows('tour_dates')):
-                $dates = $tour_dates;
-                foreach ($dates as $date):
-                    echo 'got a date';
+                echo '<ol class="dates-list">';
+                foreach ($tour_dates as $date):
+                    $date = $date['event_date'];
+                    $place = $date['event_place'];
+                    echo '<li class="date-item">'.$date.'</li>';
                 endforeach;
+                echo '</ol>';
             else:
                 if($no_date_feedback):
                     echo '<p class="lead">'.$no_date_feedback.'</p>';

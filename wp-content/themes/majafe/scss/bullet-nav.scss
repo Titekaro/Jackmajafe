@@ -1,0 +1,42 @@
+.bullet-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bullet-nav__item {
+  display: inline-block;
+  padding: 0 5px;
+
+  list-style: none;
+  cursor: pointer;
+
+  > .bullet {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+
+    background-color: transparent;
+    border: 1px solid $brand-color-secondary;
+    border-radius: 50%;
+
+    transition: background-color .2s ease-in;
+    -moz-transition: background-color .2s ease-in;
+    -webkit-transition: background-color .2s ease-in;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    > .bullet {
+      background-color: $brand-color-secondary;
+    }
+  }
+
+  &.active {
+    > .bullet {
+      background-color: $brand-color-secondary;
+    }
+  }
+
+}
