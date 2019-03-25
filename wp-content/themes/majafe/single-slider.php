@@ -61,9 +61,9 @@
       </svg>
     </span>
 
-    <ol class="slide-nav">
+    <ol class="slide-nav bullet-nav">
         <?php while ($slides->have_posts()) : $slides->the_post();
-            echo '<li class="slide-nav__bullet"><a class="bullet"></a></li>';
+            echo '<li class="slide-nav__bullet bullet-nav__item"><a class="bullet"></a></li>';
         endwhile; ?>
     </ol>
 

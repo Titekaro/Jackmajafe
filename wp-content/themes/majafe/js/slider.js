@@ -6,14 +6,13 @@ $(document).ready(function () {
         prev: $('.slide-control-prev')
     };
     let bullet = $('.slide-nav__bullet');
-
     /**
      * Initialize current slide to first.
      * @type {number}
      */
     let i = 0;
     let activeSlide = slide.eq(i).addClass('active');
-    bullet.eq(i).addClass('current');
+    bullet.eq(i).addClass('active');
     /**
      *
      */
@@ -23,10 +22,10 @@ $(document).ready(function () {
         }
         activeSlide.addClass("active");
 
-        if (bullet.hasClass('current')) {
-            bullet.removeClass('current');
+        if (bullet.hasClass('active')) {
+            bullet.removeClass('active');
         }
-        bullet.eq(i).addClass('current');
+        bullet.eq(i).addClass('active');
     };
     /**
      * Active the next slide.
