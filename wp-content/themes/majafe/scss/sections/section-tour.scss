@@ -18,11 +18,143 @@
   flex: 0 0 100%;
 }
 
-.tour-content__dates {
+.tour-content__events {
+  flex: 1 0 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.event-nav {
+  margin: 30px 0 0;
+}
+
+.events-feedback {
+  padding: 60px 0;
+}
+
+.events-group-list {
+  position: relative;
+  display: flex;
+  margin: 30px 0 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.events-group__item {
+  flex: 0 0 100%;
+}
+
+.events-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.event__item {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex: 1 0 100%;
-  padding: 60px 0px;
+  align-items: baseline;
+
+  &--past {
+    text-decoration: line-through;
+    color: $brand-color-tertiary-light;
+  }
+
+}
+
+.event__item-date-content {
+  flex: 0 0 30%;
+  padding-right: 10px;
   box-sizing: border-box;
+
+  text-align: right;
+
+  .date {
+    color: $text-color-base;
+  }
+
+  .date__day {
+    margin: 0;
+
+    font-weight: 600;
+
+    &--block {
+      display: block;
+      margin: 0.2em 0;
+
+      line-height: 1.55em;
+    }
+  }
+
+  .date__month {
+    font-weight: 400;
+
+    &:before {
+      content: '.';
+      margin: 0 1px;
+    }
+  }
+
+  @media (min-width: $screen-sm) {
+    flex: 0 0 50%;
+
+    .date__day {
+
+      &--block {
+        display: inline;
+        line-height: normal;
+      }
+
+      &:first-of-type {
+        padding-right: 6px;
+      }
+
+    }
+
+  }
+
+}
+
+.event__item-location-content {
+  flex: 0 0 70%;
+  padding-left: 10px;
+  box-sizing: border-box;
+
+  text-align: left;
+
+  > .location__map {
+    margin: 0.2em 0;
+
+    font-weight: 600;
+    color: $text-color-base;
+
+    > .city {
+    }
+
+    > .country {
+      text-transform: uppercase;
+    }
+
+  }
+
+  > .location__spot {
+    margin: 0.3em 0;
+
+    font-weight: 400;
+
+    > .place {
+      text-transform: capitalize;
+    }
+
+    > .hour {
+      white-space: nowrap;
+    }
+  }
+
+  @media (min-width: $screen-sm) {
+    flex: 0 0 50%;
+  }
+
 }
