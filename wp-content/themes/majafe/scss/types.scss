@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400, 600');
 
 html, body {
   font-size: $font-size-base-sm;
@@ -58,6 +58,17 @@ h4, .h4 {
 
   @media (min-width: $screen-lg) {
     font-size: $font-size-h4-lg;
+    margin: 0.42em 0;
+  }
+}
+
+h5, .h5 {
+  font-size: $font-size-h5-sm;
+  //line-height: ;
+  margin: 0.42em 0;
+
+  @media (min-width: $screen-lg) {
+    font-size: $font-size-h5-lg;
     margin: 0.42em 0;
   }
 }

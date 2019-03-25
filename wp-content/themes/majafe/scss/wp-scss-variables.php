@@ -38,13 +38,20 @@ function wp_scss_set_variables() {
         'font-size-base-lg' => '15px',
         'font-size-h1-sm' => '2.5em', //40px
         'font-size-h1-lg' => '4em', //60px
+
         'font-size-h2-sm' => '2.25em', //36px
         'font-size-h2-lg' => '3.2em', //48px
+
         'font-size-h3-sm' => '1.5em', //24px
         'font-size-h3-lg' => '2.4em', //36px
+
         'font-size-h4-sm' => '1.25em', //20px
         'font-size-h4-lg' => '1.6em', //24px
-        'font-size-lead' => '1.22em', //18.3px
+
+        'font-size-h5-sm' => '1.12em', //18px
+        'font-size-h5-lg' => '1.2em', //18px
+
+        'font-size-lead' => '1.2em', //18px
 
         // Screen sizes
         'screen-sm' => '768px',
