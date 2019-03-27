@@ -19,9 +19,9 @@ $(document).ready(function () {
      */
     let toggleActive = function () {
         if (slide.hasClass('active')) {
-            slide.removeClass('active').addClass('inactive');
+            slide.removeClass('active');
         }
-        activeSlide.addClass("active").removeClass("inactive");
+        activeSlide.addClass("active");
 
         if (bullet.hasClass('current')) {
             bullet.removeClass('current');
