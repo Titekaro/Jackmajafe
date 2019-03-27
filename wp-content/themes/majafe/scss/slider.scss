@@ -31,13 +31,11 @@
   -moz-transition: opacity 1s ease-in-out;
   -webkit-transition: opacity 1s ease-in-out;
 
-  &:first-of-type,
   &.active {
     opacity: 1;
-  }
-
-  &.inactive {
-    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
   }
 
   &:before {
