@@ -23,9 +23,9 @@ if (!function_exists('majafe_setup')) :
         $menu = wp_get_nav_menu_object('main menu');
         $logo = get_field('logo', $menu);
         $logoAlt = get_field('logo-alt', $menu);
+        $email = get_field('contact_email', $menu);
         // get menu items
         $menu_items = wp_get_nav_menu_items('main menu');
-        $website_url = get_site_url();
 
         echo '<div class="navbar-brand"><img class="brand-logo" src="' . $logo . '" alt="' . $logoAlt . '"></div>';
 
@@ -43,24 +43,34 @@ if (!function_exists('majafe_setup')) :
                 }
 
                 echo '</ul>';
-
-                if(have_rows('social_networks', $menu)) {
-                    $rows = get_field('social_networks', $menu);
-
-                    echo '<ul class="menu-social-list">';
-
-                    foreach ($rows as $row) :
-                        $name = $row['social_name'];
-                        $url = $row['social_url'];
-                        $icon = '<img class="icon icon-' . $name . '" src="' . $row['social_icon'] . '" alt="' . $name . '">';
-
-                        echo '<li class="social__item"><a href="' . $url . '" target="_blank">' . $icon . '</a></li>';
-
-                    endforeach;
-
-                    echo '</ul>';
-                }
             }
+
+            echo '<ul class="menu-social-list">';
+
+            if(have_rows('social_networks', $menu)) {
+                $rows = get_field('social_networks', $menu);
+
+                foreach ($rows as $row) :
+                    $name = $row['social_name'];
+                    $url = $row['social_url'];
+                    $icon = '<img class="icon icon-social icon-' . $name . '" src="' . $row['social_icon'] . '" alt="' . $name . '">';
+
+                    echo '<li class="social__item"><a href="' . $url . '" target="_blank" title="'.$name.'">' . $icon . '</a></li>';
+
+                endforeach;
+            }
+
+            if ($email) {
+                $iconUrl = $email['contact_email_icon'];
+                $url = $email['contact_email_address'];
+                $icon = '<img class="icon icon-social icon-email" src="'.$iconUrl.'" alt="email">';
+
+                if($url):
+                    echo '<li class="social__item"><a href="mailto:' . $url . '" title="Email">' . $icon . '</a></li>';
+                endif;
+            }
+
+            echo '</ul>';
 
         echo '</div>';
 

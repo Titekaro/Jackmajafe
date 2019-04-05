@@ -61,8 +61,14 @@ function wp_scss_set_variables() {
         '$container' => '1024px',
 
         // Navbar
-        'logo-width' => '40px',
-        'navbar-height' => '55px'
+        'logo-width' => '111px',
+        'navbar-height' => '55px',
+
+        // Icons
+        'icon-social-height' => '15px',
+
+        // Buttons
+        'btn-icon-fixed-width' => '40px'
     );
     return $variables;
 }
