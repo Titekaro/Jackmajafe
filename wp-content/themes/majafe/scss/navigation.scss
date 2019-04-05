@@ -57,13 +57,14 @@
  */
 .navbar-brand {
   display: inline-block;
+  padding: 5px 0;
 
   @media (min-width: $screen-lg) {
     display: flex;
     align-items: center;
     height: 100%;
     margin: 0 35px 0 0;
-    padding: 5px 0;
+    padding: 9px 0;
   }
 }
 
@@ -93,6 +94,7 @@
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
+    height: auto;
   }
 }
 
@@ -115,16 +117,16 @@
     padding: 15px 0;
 
     font-family: $font-family-headings;
-    font-size: 1em;
+    font-size: 0.94em;
     font-weight: 400;
     color: rgba($brand-color-secondary, .7);
     text-transform: uppercase;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
 
-    transition: color .2s ease-in-out;
-    -moz-transition: color .2s ease-in-out;
-    -webkit-transition: color .2s ease-in-out;
+    transition: color .3s ease-in-out;
+    -moz-transition: color .3s ease-in-out;
+    -webkit-transition: color .3s ease-in-out;
 
     &:active,
     &:hover,
@@ -262,7 +264,7 @@
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 5px 10px;
+    padding: 5px ($icon-social-height / 3);
 
     opacity: .7;
     transition: opacity .2s ease-in-out;
