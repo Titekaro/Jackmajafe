@@ -67,6 +67,14 @@
         endwhile; ?>
     </ol>
 
+    <div class="scroll-down">
+        <span class="sr-only">Scroll Down</span>
+        <?php
+        echo '<img class="icon icon-scroll" src="'.get_bloginfo('template_directory').'/images/icons/scroll-down.svg" alt="Scroll down">';
+        ?>
+        <div class="mouse-arrow"></div>
+    </div>
+
 </div>
 
 <?php endif; ?>
