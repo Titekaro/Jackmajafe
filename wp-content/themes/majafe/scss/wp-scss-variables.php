@@ -68,7 +68,10 @@ function wp_scss_set_variables() {
         'icon-social-height' => '15px',
 
         // Buttons
-        'btn-icon-fixed-width' => '40px'
+        'btn-icon-fixed-width' => '40px',
+
+        //Sections
+        'music-cover-size' => '400px'
     );
     return $variables;
 }

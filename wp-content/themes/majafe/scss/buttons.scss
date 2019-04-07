@@ -31,6 +31,38 @@
 
 }
 
+.btn--small {
+  font-size: 0.9em;
+}
+
+.btn-icon-fixed {
+  display: flex;
+  align-items: center;
+  width: $btn-icon-fixed-width;
+  height: $btn-icon-fixed-width;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+
+  border: 1px solid rgba($text-color-base, .7);
+
+  > .icon {
+    width: 100%;
+    opacity: .7;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid rgba($text-color-base, 1);
+
+    > .icon {
+      opacity: 1;
+    }
+
+  }
+}
+
 .btn-secondary {
   color: $brand-color-secondary;
   border: 1px solid $brand-color-secondary;
