@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let scrollDownEl = $('.scroll-down');
     let sliderInterval;
     let slide = $('.slide');
     let control = {
@@ -85,6 +86,18 @@ $(document).ready(function () {
         toggleActive();
         clearInterval(sliderInterval);
         autoPlay();
+    });
+
+    let toggleScrollDown = function () {
+        if ($(window).scrollTop() > 10) {
+            scrollDownEl.addClass('remove');
+        } else {
+            scrollDownEl.removeClass('remove')
+        }
+    };
+
+    $(window).on('scroll', function () {
+        toggleScrollDown();
     })
 
 });
