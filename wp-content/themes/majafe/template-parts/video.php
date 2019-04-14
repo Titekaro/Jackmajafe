@@ -25,22 +25,8 @@ if ( $page->have_posts() ) : $page->the_post();
     $section_btn_text = get_field('section_button_text');
     $section_btn_link = get_field('section_button_link');
 
-    $iframe = get_field('oembed');
-    // use preg_match to find iframe src
-    preg_match('/src="(.+?)"/', $iframe, $matches);
-    $src = $matches[1];
-    // add extra params to iframe src
-    $params = array(
-        'controls'    => 0,
-        'hd'        => 1,
-        'autohide'    => 1
-    );
-    $new_src = add_query_arg($params, $src);
-    $iframe = str_replace($src, $new_src, $iframe);
-    // add extra attributes to iframe html
-    $attributes = 'frameborder="0"';
-    $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-
+    $colNum = get_field('col_num');
+    $video = get_field('video_item');
 
     echo '<div class="section-content-container video-content-container">';
     echo '<div class="section-content video-content">';
@@ -64,11 +50,39 @@ if ( $page->have_posts() ) : $page->the_post();
 
     echo '</div>';
 
-    if ($iframe):
+    if ($video):
 
-        echo '<div class="video-content__item">';
+        echo '<div class="video-content__gallery">';
 
-        echo '<div class="embed-container">'.$iframe.'</div>';
+        foreach ($video as $videoEl):
+
+            $colNum = $colNum == '' ? 3 : $colNum;
+            $videoWidth = 100/$colNum . '%';
+            $title = $videoEl['video_title'];
+            $subtitle = $videoEl['video_subtitle'];
+            $subtitle = $subtitle ? $subtitle : '&nbsp;';
+            $thumb = $videoEl['video_thumb'];
+            $gif = $videoEl['video_gif'];
+            $gifUrl = $gif ? $gif : $thumb;
+            $url = $videoEl['video_url'];
+
+            echo '<div class="video-block-item" style="flex-basis: '.$videoWidth.'">';
+            echo '<a class="video-link visible mfp-iframe" href="'.$url.'">';
+                echo '<div class="thumb-hover" style="background-image: url('.$gifUrl.')"></div>';
+                echo '<div class="thumb" style="background-image: url('.$thumb.')"></div>';
+                echo '<div class="video-backdrop"></div>';
+                if ($title || $subtitle):
+                echo '<div class="video-info">';
+                    if($title):
+                    echo '<p class="h5 video-info__title">'.$title.'</p>';
+                    endif;
+                    echo '<p class="h5 video-info__subtitle">'.$subtitle.'</p>';
+              echo '</div>';
+              endif;
+            echo '</a>';
+            echo '</div>';
+
+        endforeach;
 
         echo '</div>';
 

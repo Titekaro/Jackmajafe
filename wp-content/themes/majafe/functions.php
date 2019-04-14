@@ -96,6 +96,8 @@ function majafe_scripts() {
         wp_enqueue_script('slider', get_template_directory_uri().'/js/slider.js', array('jquery'), false, false);
         wp_enqueue_script('nav', get_template_directory_uri().'/js/nav.js', array('jquery'), false, false);
         wp_enqueue_script('dates-slides', get_template_directory_uri().'/js/dates-slides.js', array('jquery'), false, false);
+        wp_enqueue_script('magnific-popup', get_template_directory_uri().'/js/magnific-popup.js', array('jquery'), false, false);
+        wp_enqueue_script('video-grid-gallery', get_template_directory_uri().'/js/video-grid-gallery.js', array('jquery'), false, false);
         wp_enqueue_script('jquery');
     }
 }
