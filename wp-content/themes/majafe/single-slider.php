@@ -4,6 +4,8 @@
         'post_type' => 'slider'
     ));
 
+    $countSlides = $slides->found_posts;
+
 ?>
 
 <?php if ($slides->have_posts()) :?>
@@ -49,6 +51,8 @@
         <?php endwhile; ?>
     </ol>
 
+    <?php if ($countSlides > 1): ?>
+
     <span class="slide-control slide-control-next">
       <svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="32" viewBox="0 0 17.5 32">
           <path fill="#fff" d="M1.9.3l15.3 15.3c.4.4.4 1.1 0 1.5L1.9 31.6l-.1.1c-.4.4-1.1.3-1.5-.1s-.3-1.1.1-1.5l14.5-13.8L.3 1.9c-.2-.2-.3-.4-.3-.7C0 .6.4.1 1 0c.3 0 .7.1.9.3z"/>
@@ -75,6 +79,7 @@
         <div class="mouse-arrow"></div>
     </div>
 
+    <?php endif; ?>
 </div>
 
 <?php endif; ?>
