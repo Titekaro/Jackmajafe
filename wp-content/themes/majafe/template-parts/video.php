@@ -27,6 +27,9 @@ if ( $page->have_posts() ) : $page->the_post();
 
     $colNum = get_field('col_num');
     $video = get_field('video_item');
+    $video_btn = get_field('youtube_button');
+    $video_btn_text = get_field('youtube_button_text');
+    $video_btn_link = get_field('youtube_button_link');
 
     echo '<div class="section-content-container video-content-container">';
     echo '<div class="section-content video-content">';
@@ -85,6 +88,13 @@ if ( $page->have_posts() ) : $page->the_post();
         endforeach;
 
         echo '</div>';
+
+        if ($video_btn):
+            echo '<a href="'.$video_btn_link.'" target="_blank" class="btn btn-link btn-icon btn-icon--youtube btn--shout" title="'.$video_btn_text.'">';
+                echo '<img class="icon icon-youtube" src="'.get_bloginfo('template_directory').'/images/icons/icon-youtube.svg" alt=""/>';
+                echo $video_btn_text;
+            echo '</a>';
+        endif;
 
     endif;
 

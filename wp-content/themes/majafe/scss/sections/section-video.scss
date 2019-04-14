@@ -94,7 +94,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 22.5%;
+    max-width: 60px;
     height: 22.5%;
+    max-height: 60px;
     z-index: 5;
     opacity: .8;
     visibility: visible;
