@@ -10,6 +10,14 @@ if (!function_exists('majafe_setup')) :
     }
     add_action('get_header', 'remove_admin_login_header');
 
+    // add editor the privilege to edit theme
+
+    // get the the role object
+    $role_object = get_role( 'editor' );
+
+    // add $cap capability to this role object
+    $role_object->add_cap( 'edit_theme_options' );
+
     function menu_majafe() {
         register_nav_menus(array(
             'theme_location' => 'main menu'
