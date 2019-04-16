@@ -25,6 +25,9 @@ if ( $page->have_posts() ) : $page->the_post();
     $section_btn_text = get_field('section_button_text');
     $section_btn_link = get_field('section_button_link');
 
+    $phone = get_field('phone');
+    $email = get_field('email');
+
 echo '<div class="section-content-container contact-content-container">';
     echo '<div class="section-content contact-content">';
         echo '<div class="contact-content__intro">';
@@ -48,6 +51,24 @@ echo '<div class="section-content-container contact-content-container">';
         echo '</div>';
 
         echo '<div class="contact-content__infos">';
+
+            if($phone):
+            echo '<div class="contact-info info-phone btn btn-link btn--shout">';
+                echo '<div class="icon-wrapper">';
+                echo '<img class="icon icon-phone" src="'.get_bloginfo('template_directory').'/images/icons/icon-phone.svg" alt="Phone"/>';
+                echo '</div>';
+                echo '<a class="btn btn-link btn--shout" href="tel:+32'.$phone.'">+32&nbsp;'.$phone.'</a>';
+            echo '</div>';
+            endif;
+
+            if($email):
+            echo '<div class="contact-info info-email btn btn-link btn--shout">';
+                echo '<div class="icon-wrapper">';
+                echo '<img class="icon icon-mail" src="'.get_bloginfo('template_directory').'/images/icons/icon-mail.svg" alt="Email"/>';
+                echo '</div>';
+                echo '<a class="btn btn-link btn--shout" href="mailto:'.$email.'">'.$email.'</a>';
+            echo '</div>';
+            endif;
 
         echo '</div>';
 
