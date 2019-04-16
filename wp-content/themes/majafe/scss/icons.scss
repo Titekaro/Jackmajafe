@@ -1,12 +1,14 @@
 .icon {
-
+  height: $icon-height;
+  width: auto;
 }
 
 .icon-social {
   height: $icon-social-height;
+  width: auto;
 }
 
 .icon-scroll {
   width: 16px;
-  height: auto;
+  height: 100%;
 }

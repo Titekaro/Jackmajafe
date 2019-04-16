@@ -65,6 +65,7 @@ function wp_scss_set_variables() {
         'navbar-height' => '55px',
 
         // Icons
+        'icon-height' => '15px',
         'icon-social-height' => '15px',
 
         // Buttons
