@@ -61,7 +61,8 @@ if (!function_exists('majafe_setup')) :
                 foreach ($rows as $row) :
                     $name = $row['social_name'];
                     $url = $row['social_url'];
-                    $icon = '<img class="icon icon-social icon-' . $name . '" src="' . $row['social_icon'] . '" alt="' . $name . '">';
+                    $iconName = sanitize_title($name);
+                    $icon = '<img class="icon icon-social icon-'.$iconName.'" src="'.get_bloginfo('template_directory').'/images/icons/icon-'.$iconName.'.svg" alt="'.$name.'">';
 
                     echo '<li class="social__item"><a href="' . $url . '" target="_blank" title="'.$name.'">' . $icon . '</a></li>';
 
@@ -69,9 +70,8 @@ if (!function_exists('majafe_setup')) :
             }
 
             if ($email) {
-                $iconUrl = $email['contact_email_icon'];
                 $url = $email['contact_email_address'];
-                $icon = '<img class="icon icon-social icon-email" src="'.$iconUrl.'" alt="email">';
+                $icon = '<img class="icon icon-social icon-email" src="'.get_bloginfo('template_directory').'/images/icons/icon-mail.svg" alt="Email">';
 
                 if($url):
                     echo '<li class="social__item"><a href="mailto:' . $url . '" title="Email">' . $icon . '</a></li>';
