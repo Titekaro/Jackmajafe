@@ -20,7 +20,8 @@ if ( $page->have_posts() ) : $page->the_post();
 
     $section_title = get_field('section_title');
     $section_subtitle = get_field('section_subtitle');
-    $section_lead = get_field('section_main_paragraph');
+    $section_lead = get_field('section_lead_paragraph');
+    $section_paragraph = get_field('section_main_paragraph');
     $section_btn = get_field('section_button');
     $section_btn_text = get_field('section_button_text');
     $section_btn_link = get_field('section_button_link');
@@ -45,6 +46,10 @@ if ( $page->have_posts() ) : $page->the_post();
 
     if ($section_lead):
         echo '<p class="section-lead lead">'.$section_lead.'</p>';
+    endif;
+
+    if ($section_paragraph):
+        echo '<div class="section-text">'.$section_paragraph.'</div>';
     endif;
 
     if ($section_btn):

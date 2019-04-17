@@ -29,6 +29,8 @@
   }
 }
 
-.section-lead {
-
+.section-lead,
+.section-text {
+  max-width: 650px;
+  margin: 0 auto;
 }
