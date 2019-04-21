@@ -64,7 +64,7 @@
 @import "header";
 
 /**
- * 7.0 - Section
+ * 7.0 - Sections
  */
 @import "sections/section";
 @import "sections/section-page";
@@ -75,10 +75,16 @@
 @import "sections/section-bio";
 @import "sections/section-music";
 @import "sections/section-video";
+
 /**
  * 8.0 - Slider
  */
 @import "slider";
+
+/**
+ * 8.0 - Pages
+ */
+@import "pages/404";
 
 /**
  * 9.0 - Footer
