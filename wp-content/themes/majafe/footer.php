@@ -21,10 +21,10 @@
 
         <ul class="p text-small footer-nav">
             <li class="footer-nav__item">
-                <a href="#" target="_blank">Privacy Policy</a>
+                <a class="btn btn-link btn--shout" href="<?php echo get_bloginfo('url'); ?>/privacy-policy" target="_self">Privacy Policy</a>
             </li>
             <li class="footer-nav__item">
-                <a href="#" target="_blank">Cookies Policy</a>
+                <a class="btn btn-link btn--shout" href="<?php echo get_bloginfo('url'); ?>/cookies-policy" target="_self">Cookies Policy</a>
             </li>
         </ul>
 

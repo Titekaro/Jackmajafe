@@ -20,7 +20,7 @@ get_header();
 <main class="single-page">
     <section class="section section-page">
         <div class="section-content-container page-content-container">
-            <div class="section-content page-content">
+            <div class="section-content page-content <?php if (is_page('privacy-policy') || is_page('cookies-policy')): echo 'policy-content'; endif; ?>">
 
                 <?php
 
