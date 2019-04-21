@@ -39,19 +39,29 @@ if (!function_exists('majafe_setup')) :
 
         echo '<div class="navbar-menu">';
 
-            if($menu_items) {
+            if($menu_items):
 
                 echo '<ul class="menu-list">';
 
-                foreach ($menu_items as $menu_item) {
+                foreach ($menu_items as $menu_item):
 
                     $menu_item_title = sanitize_title($menu_item->title);
 
-                    echo '<li class="menu__item"><a href="#' . $menu_item_title . '">' . $menu_item->title . '</a></li>';
-                }
+                    echo '<li class="menu__item">';
+                        echo '<a href="';
+                            if(is_front_page()):
+                                echo '#'.$menu_item_title;
+                            else :
+                             echo get_home_url().'/#'.$menu_item_title;
+                            endif;
+                        echo '">';
+                        echo $menu_item->title;
+                        echo '</a>';
+                    echo '</li>';
+                endforeach;
 
                 echo '</ul>';
-            }
+            endif;
 
             echo '<ul class="menu-social-list">';
 
