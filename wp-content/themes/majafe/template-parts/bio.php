@@ -26,6 +26,8 @@ if ( $page->have_posts() ) : $page->the_post();
     $section_btn_text = get_field('section_button_text');
     $section_btn_link = get_field('section_button_link');
 
+    $members = get_field('bio_member');
+
 echo '<div class="section-content-container bio-content-container">';
     echo '<div class="section-content bio-content">';
         echo '<div class="bio-content__intro">';
@@ -53,6 +55,34 @@ echo '<div class="section-content-container bio-content-container">';
         echo '</div>';
 
         echo '<div class="bio-content__members">';
+
+        if ($members):
+            foreach ($members as $member):
+                $member_name = $member['member_name'];
+                $member_function = $member['member_function'];
+                $member_image = $member['member_image'];
+                $member_page_link = $member['member_page_link'];
+
+                if ($member_page_link):
+                    echo '<a class="member" href="'.$member_page_link.'">';
+                else:
+                    echo '<div class="member">';
+                endif;
+
+                    echo '<div class="member__picture" style="background-image: url('.$member_image.')"></div>';
+                    echo '<div class="member__info">';
+                        echo '<p class="member__name">'.$member_name.'</p>';
+                        echo '<p class="member__function">'.$member_function.'</p>';
+                    echo '</div>';
+
+                if ($member_page_link):
+                    echo '</a>';
+                else:
+                    echo '</div>';
+                endif;
+
+            endforeach;
+        endif;
 
         echo '</div>';
 
