@@ -55,18 +55,22 @@ echo '<div class="section-content-container music-content-container">';
         echo '</div>';
 
         if (have_rows('music_element')):
+
+            echo '<div class="music-content__items">';
+            echo '<ol class="music-item-list">';
+
             foreach ($music_item as $music):
                 $music_cover = $music['music_cover'];
                 $music_teaser = $music['teaser_text'];
                 $music_title = $music['music_title'];
                 $music_btns = $music['music_btns'];
 
-                echo '<div class="music-content__items">';
-
-                echo '<div class="music__item">';
+                echo '<li class="music__item">';
 
                     echo '<div class="music-cover" style="background-image: url('.$music_cover.')"></div>';
-                    echo '<p class="music-teaser">'.$music_teaser.'</p>';
+                    echo '<p class="music-teaser">';
+                        if($music_teaser): echo $music_teaser; else: echo '&nbsp;'; endif;
+                    echo '</p>';
                     echo '<p class="h3 music-title">'.$music_title.'</p>';
 
                     if ($music_btns):
@@ -84,11 +88,28 @@ echo '<div class="section-content-container music-content-container">';
                         echo '</ul>';
                     endif;
 
-                echo '</div>';
-
-                echo '</div>';
-
+                echo '</li>';
             endforeach;
+
+            echo '</ol>';
+
+            ?>
+
+            <span class="slide-control slide-control-next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="32" viewBox="0 0 17.5 32">
+                  <path fill="#fff" d="M1.9.3l15.3 15.3c.4.4.4 1.1 0 1.5L1.9 31.6l-.1.1c-.4.4-1.1.3-1.5-.1s-.3-1.1.1-1.5l14.5-13.8L.3 1.9c-.2-.2-.3-.4-.3-.7C0 .6.4.1 1 0c.3 0 .7.1.9.3z"/>
+              </svg>
+            </span>
+
+            <span class="slide-control slide-control-prev">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="32" viewBox="0 0 17.5 32">
+                <path fill="#fff" d="M16.5 0c.6.1 1 .6 1 1.2 0 .3-.1.5-.3.7L2.6 16.3l14.5 13.8c.4.4.5 1.1.1 1.5s-1.1.5-1.5.1l-.1-.1L.3 17.1c-.4-.4-.4-1.1 0-1.5L15.6.3c.2-.2.6-.3.9-.3z"/>
+              </svg>
+            </span>
+
+            <?php
+
+            echo '</div>';
         endif;
 
         echo '</div>';

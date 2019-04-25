@@ -2,9 +2,9 @@ $(document).ready(function () {
     let scrollDownEl = $('.scroll-down');
     let sliderInterval;
     let slide = $('.slide');
-    let control = {
-        next: $('.slide-control-next'),
-        prev: $('.slide-control-prev')
+    let sliderControl = {
+        next: $('.slider-container .slide-control-next'),
+        prev: $('.slider-container .slide-control-prev')
     };
     let bullet = $('.slide-nav__bullet');
     /**
@@ -51,7 +51,7 @@ $(document).ready(function () {
     /**
      * Pass to the next slide when we click to the next btn.
      */
-    control.next.on('click', function() {
+    sliderControl.next.on('click', function() {
         if (i === slide.length - 1) {
             i = 0;
         } else {
@@ -65,7 +65,7 @@ $(document).ready(function () {
     /**
      * Pass to the preview slide when we click to the prev btn.
      */
-    control.prev.on('click', function() {
+    sliderControl.prev.on('click', function() {
         if (i === 0) {
             i = slide.length - 1;
         } else {
