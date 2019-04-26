@@ -74,7 +74,7 @@ if ( $page->have_posts() ) : $page->the_post();
             $gifUrl = $gif ? $gif : $thumb;
             $url = $videoEl['video_url'];
 
-            echo '<div class="video-block-item" style="flex-basis: '.$videoWidth.'">';
+            echo '<div class="video-block-item" style="flex-basis: '.$videoWidth.'; -ms-flex-preferred-size:'.$videoWidth.';">';
             echo '<a class="video-link visible mfp-iframe" href="'.$url.'">';
                 echo '<div class="thumb-hover" style="background-image: url('.$gifUrl.')"></div>';
                 echo '<div class="thumb" style="background-image: url('.$thumb.')"></div>';

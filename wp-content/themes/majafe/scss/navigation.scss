@@ -8,20 +8,19 @@
   min-height: $navbar-height;
   padding: 10px 30px;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   z-index: 999;
   overflow: hidden;
 
   background-color: transparent;
 
   transition: background-color .5s;
-  -moz-transition: background-color .5s;
   -webkit-transition: background-color .5s;
 
   &.open {
     background-color: $brand-color-tertiary-dark;
 
     transition: background-color 0s;
-    -moz-transition: background-color 0s;
     -webkit-transition: background-color 0s;
   }
 
@@ -33,21 +32,32 @@
   background-color: $brand-color-tertiary-dark;
 
   transition: background-color .5s;
-  -moz-transition: background-color .5s;
   -webkit-transition: background-color .5s;
 }
 
 .navbar-content {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
   align-items: flex-start;
   width: 100%;
   max-width: $container;
   margin: 0 auto;
 
   @media (min-width: $screen-lg) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
   }
 }
@@ -60,7 +70,11 @@
   padding: 5px 0;
 
   @media (min-width: $screen-lg) {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     height: 100%;
     margin: 0 35px 0 0;
@@ -89,16 +103,28 @@
   }
 
   @media (min-width: $screen-lg) {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     height: auto;
   }
 }
 
 .menu-list {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   margin: 0;
   padding: 0;
@@ -125,7 +151,6 @@
     -webkit-font-smoothing: antialiased;
 
     transition: color .3s ease-in-out;
-    -moz-transition: color .3s ease-in-out;
     -webkit-transition: color .3s ease-in-out;
 
     &:active,
@@ -170,9 +195,9 @@
 
       > rect:first-of-type {
         transform: translate(7px, 16px) rotate(-45deg);
+        -webkit-transform: translate(7px, 16px) rotate(-45deg);
 
         transition: .3s ease-in-out;
-        -moz-transition: .3s ease-in-out;
         -webkit-transition: .3s ease-in-out;
       }
       > rect:nth-of-type(2) {
@@ -180,14 +205,13 @@
         opacity: 0;
 
         transition: .3s ease-in-out;
-        -moz-transition: .3s ease-in-out;
         -webkit-transition: .3s ease-in-out;
       }
       > rect:last-of-type {
         transform: translate(20px, -13px) rotate(45deg);
+        -webkit-transform: translate(20px, -13px) rotate(45deg);
 
         transition: .3s ease-in-out;
-        -moz-transition: .3s ease-in-out;
         -webkit-transition: .3s ease-in-out;
       }
     }
@@ -203,11 +227,11 @@
   color: $brand-color-secondary;
 
   > rect:first-of-type,
-  > rect:last-of-type{
+  > rect:last-of-type {
     transform: translate(0, 0) rotate(0deg);
+    -webkit-transform: translate(0, 0) rotate(0deg);
 
     transition: .3s ease-in-out;
-    -moz-transition: .3s ease-in-out;
     -webkit-transition: .3s ease-in-out;
   }
   > rect:nth-of-type(2) {
@@ -215,7 +239,6 @@
     opacity: 1;
 
     transition: .3s ease-in-out;
-    -moz-transition: .3s ease-in-out;
     -webkit-transition: .3s ease-in-out;
   }
 }
@@ -241,7 +264,11 @@
   }
 
   @media (min-width: $screen-lg) {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0;
 
@@ -261,14 +288,17 @@
   margin: 10px 5px;
 
   > a {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0;
     padding: 5px ($icon-social-height / 3);
 
     opacity: .7;
     transition: opacity .2s ease-in-out;
-    -moz-transition: opacity .2s ease-in-out;
     -webkit-transition: opacity .2s ease-in-out;
 
     &:active,

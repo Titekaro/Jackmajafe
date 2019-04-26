@@ -3,7 +3,8 @@
   margin: 30px 0;
 
   > .slide-control {
-    top: $music-cover-size /2;
+    top: 30%;
+    -webkit-transform: none;
     transform: none;
   }
 
@@ -16,6 +17,9 @@
   }
 
   @media (min-width: $screen-sm) {
+    > .slide-control {
+      top: $music-cover-size /2;
+    }
 
     > .slide-control-next {
       right: 85px;
@@ -47,7 +51,6 @@
   text-align: center;
 
   transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
   -webkit-transition: opacity 1s ease-in-out;
 
   &.active {
@@ -57,7 +60,6 @@
     opacity: 1;
 
     transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
     -webkit-transition: opacity 1s ease-in-out;
   }
 }
@@ -92,8 +94,13 @@
 }
 
 .music-btn-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin: 20px -10px 0;
   padding: 0;
