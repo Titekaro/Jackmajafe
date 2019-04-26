@@ -62,7 +62,7 @@ echo '<div class="section-content-container contact-content-container">';
                 echo '<div class="icon-wrapper">';
                 echo '<img class="icon icon-phone" src="'.get_bloginfo('template_directory').'/images/icons/icon-phone.svg" alt="Phone"/>';
                 echo '</div>';
-                echo '<a class="btn btn-link btn--shout" href="tel:+32'.$phone.'">+32&nbsp;'.$phone.'</a>';
+                echo '<a class="btn btn-link btn--shout" href="tel:0032'.$phone.'">+32&nbsp;'.$phone.'</a>';
             echo '</div>';
             endif;
 
