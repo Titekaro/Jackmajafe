@@ -30,6 +30,9 @@ if ( $page->have_posts() ) : $page->the_post();
     $email = get_field('email');
 
 echo '<div class="section-content-container contact-content-container">';
+
+    include(locate_template('newsletter-subscribe.php'));
+
     echo '<div class="section-content contact-content">';
         echo '<div class="contact-content__intro">';
 

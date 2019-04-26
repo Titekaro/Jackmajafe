@@ -1,0 +1,24 @@
+.form-container {
+  padding: 50px 0;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $screen-sm) {
+    flex-direction: row;
+  }
+}
+
+input {
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+
+  font-family: $font-family-headings;
+  font-size: $input-font-size;
+  font-weight: 300;
+}

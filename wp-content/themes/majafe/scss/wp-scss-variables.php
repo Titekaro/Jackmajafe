@@ -72,8 +72,11 @@ function wp_scss_set_variables() {
         // Buttons
         'btn-icon-fixed-width' => '40px',
 
-        //Sections
-        'music-cover-size' => '400px'
+        // Sections
+        'music-cover-size' => '400px',
+
+        // Forms
+        'input-font-size' => '22px'
     );
     return $variables;
 }
