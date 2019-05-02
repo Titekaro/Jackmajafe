@@ -16,8 +16,8 @@
 
   &.remove {
     opacity: 0;
-    transform: translateY(-50px);
-    -webkit-transform: translateY(-50px);
+    transform: translate(-50%, -50px);
+    -webkit-transform: translate(-50%, -50px);
 
     transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
