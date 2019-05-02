@@ -1,19 +1,19 @@
 $(document).ready(function () {
-    let event = {
+    var event = {
         bullet: $('.event-nav__bullet'),
         groupList: $('.events-group-list'),
         group: $('.events-group__item')
     };
-    let eventGroupWidth;
+    var eventGroupWidth;
     /**
      * Initialize current dateGroup to first.
      * @type {number}
      */
-    let i = 0;
-    let activeEventGroup = event.group.eq(i).addClass('active');
+    var i = 0;
+    var activeEventGroup = event.group.eq(i).addClass('active');
     event.bullet.eq(i).addClass('active');
 
-    let slideWidth = function () {
+    var slideWidth = function () {
         eventGroupWidth = event.group.outerWidth();
 
         event.groupList.css({
@@ -30,7 +30,7 @@ $(document).ready(function () {
         slideWidth();
     });
 
-    let toggleActive = function () {
+    var toggleActive = function () {
         if (event.bullet.hasClass('active')) {
             event.bullet.removeClass('active');
         }
@@ -54,7 +54,7 @@ $(document).ready(function () {
             "-webkit-transform": "translateX(-" + eventGroupWidth * i + "px)",
             "transition": "transform .6s ease-in-out",
             "-webkit-transition": "transform .6s ease-in-out"
-            });
+        });
         toggleActive();
     });
 

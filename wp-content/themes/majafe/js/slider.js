@@ -1,23 +1,23 @@
 $(document).ready(function () {
-    let scrollDownEl = $('.scroll-down');
-    let sliderInterval;
-    let slide = $('.slide');
-    let sliderControl = {
+    var scrollDownEl = $('.scroll-down');
+    var sliderInterval;
+    var slide = $('.slide');
+    var sliderControl = {
         next: $('.slider-container .slide-control-next'),
         prev: $('.slider-container .slide-control-prev')
     };
-    let bullet = $('.slide-nav__bullet');
+    var bullet = $('.slide-nav__bullet');
     /**
      * Initialize current slide to first.
      * @type {number}
      */
-    let i = 0;
-    let activeSlide = slide.eq(i).addClass('active');
+    var i = 0;
+    var activeSlide = slide.eq(i).addClass('active');
     bullet.eq(i).addClass('active');
     /**
      *
      */
-    let toggleActive = function () {
+    var toggleActive = function () {
         if (slide.hasClass('active')) {
             slide.removeClass('active');
         }
@@ -31,7 +31,7 @@ $(document).ready(function () {
     /**
      * Active the next slide.
      */
-    let autoLoop = function () {
+    var autoLoop = function () {
         if (i < slide.length - 1) {
             i = i + 1;
         }
@@ -44,14 +44,14 @@ $(document).ready(function () {
     /**
      * Set the autoplay of the slider.
      */
-    let autoPlay = function () {
+    var autoPlay = function () {
         sliderInterval = setInterval(autoLoop, 6000);
     };
     autoPlay();
     /**
      * Pass to the next slide when we click to the next btn.
      */
-    sliderControl.next.on('click', function() {
+    sliderControl.next.on('click', function () {
         if (i === slide.length - 1) {
             i = 0;
         } else {
@@ -65,7 +65,7 @@ $(document).ready(function () {
     /**
      * Pass to the preview slide when we click to the prev btn.
      */
-    sliderControl.prev.on('click', function() {
+    sliderControl.prev.on('click', function () {
         if (i === 0) {
             i = slide.length - 1;
         } else {
@@ -79,7 +79,7 @@ $(document).ready(function () {
     /**
      * Add an event listener on the bullet nav.
      */
-    bullet.on('click', function() {
+    bullet.on('click', function () {
         // Define the id of the slide to show, corresponding to the id of the clicked bullet.
         i = $(this).index();
         activeSlide = slide.eq(i);
@@ -88,7 +88,7 @@ $(document).ready(function () {
         autoPlay();
     });
 
-    let toggleScrollDown = function () {
+    var toggleScrollDown = function () {
         if ($(window).scrollTop() > 10) {
             scrollDownEl.addClass('remove');
         } else {

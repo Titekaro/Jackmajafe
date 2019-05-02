@@ -1,22 +1,22 @@
 $(document).ready(function () {
-    let root = $('html, body');
-    let menu = {
+    var root = $('html, body');
+    var menu = {
         item: $('.menu__item')
     };
-    let section = $('.section');
+    var section = $('.section');
     /**
      * This variable is used to differenciate a scroll event from a scrollTop,
      * and kill the targetSection call when we use a scrollTop.
      * Used in targetSection function and in scrollToSection function.
      * @type {boolean}
      */
-    let isAutoScrolling = false;
+    var isAutoScrolling = false;
     /**
      * Initialize first selected menu item.
      * But detect if we're not targetting a specific section in the url when refreshing it.
      */
     if (window.location.hash) {
-        let target = window.location.hash;
+        var target = window.location.hash;
         menu.item.find('a[href="' + target + '"]').parent().addClass('current');
     } else {
         menu.item.first().addClass('current');
@@ -27,15 +27,15 @@ $(document).ready(function () {
      * When we come into a section, the corresponding menu link is targeted as 'current'.
      * This function is called when we scroll the page.
      */
-    let targetSection = function () {
+    var targetSection = function () {
         if (!isAutoScrolling) {
             section.each(function () {
-                let currentScroll = $(window).scrollTop();
-                let sectionPosition = $(this).position().top;
+                var currentScroll = $(window).scrollTop();
+                var sectionPosition = $(this).position().top;
 
                 if (sectionPosition <= currentScroll) {
-                    let id = $(this).attr('id');
-                    let activeLink = menu.item.find('a[href="#' + id + '"]');
+                    var id = $(this).attr('id');
+                    var activeLink = menu.item.find('a[href="#' + id + '"]');
                     if (menu.item.hasClass('current')) {
                         menu.item.removeClass('current');
                     }
@@ -50,8 +50,8 @@ $(document).ready(function () {
      * We animate the page to let it smooth scroll to the selected section.
      * This function is called when we click on a menu link.
      */
-    let scrollToSection = function (selectedSection) {
-        let theSection = selectedSection.find('a').attr('href');
+    var scrollToSection = function (selectedSection) {
+        var theSection = selectedSection.find('a').attr('href');
 
         if (isAutoScrolling) {
             root.stop().animate({
@@ -87,7 +87,7 @@ $(document).ready(function () {
         event.preventDefault();
         isAutoScrolling = true;
 
-        let theSection = $(this).attr('href');
+        var theSection = $(this).attr('href');
 
         if (isAutoScrolling) {
             root.stop().animate({
