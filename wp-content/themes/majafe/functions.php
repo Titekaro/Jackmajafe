@@ -111,11 +111,11 @@ function majafe_scripts() {
         wp_deregister_script('jquery');
         wp_register_script('jquery', ("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"), array(),'3.3.1', true);
         wp_enqueue_script('main-nav', get_template_directory_uri().'/js/main-nav.js', array('jquery'), false, false);
+        wp_enqueue_script('slider', get_template_directory_uri().'/js/slider.js', array('jquery'), false, false);
 
         if(is_front_page()) {
 
             wp_enqueue_script('one-page-nav', get_template_directory_uri() . '/js/one-page-nav.js', array('jquery'), false, false);
-            wp_enqueue_script('slider', get_template_directory_uri().'/js/slider.js', array('jquery'), false, false);
             wp_enqueue_script('dates-slides', get_template_directory_uri().'/js/dates-slides.js', array('jquery'), false, false);
             wp_enqueue_script('music-slides', get_template_directory_uri().'/js/music-slides.js', array('jquery'), false, false);
             wp_enqueue_script('video-grid-gallery', get_template_directory_uri().'/js/video-grid-gallery.js', array('jquery'), false, false);
