@@ -16,7 +16,8 @@ if($menu_items) :
 
         $page = new WP_Query(array(
             'p' => $menu_item->object_id,
-            'post_type' => 'any'
+            'post_type' => 'any',
+            'post_status' => 'any'
         ));
 
         if ($page->have_posts()) :
