@@ -62,6 +62,7 @@ echo '<div class="section-content-container bio-content-container">';
                 $member_function = $member['member_function'];
                 $member_image = $member['member_image'];
                 $member_page_link = $member['member_page_link'];
+                $text_link = $member['member_text_link'];
 
                 if ($member_page_link):
                     echo '<a class="member" href="'.$member_page_link.'">';
@@ -69,10 +70,17 @@ echo '<div class="section-content-container bio-content-container">';
                     echo '<div class="member">';
                 endif;
 
-                    echo '<div class="member__picture" style="background-image: url('.$member_image.')"></div>';
-                    echo '<div class="member__info">';
-                        echo '<p class="member__name">'.$member_name.'</p>';
-                        echo '<p class="member__function">'.$member_function.'</p>';
+                    echo '<div class="member__picture" style="background-image: url('.$member_image.')">';
+                        echo '<p class="member__picture-text">';
+                        echo $text_link;
+                        echo '</p>';
+                    echo '</div>';
+                    echo '<div class="member__info-wrapper">';
+                        echo '<div class="member__info">';
+                            echo '<p class="member__name">'.$member_name.'</p>';
+                            echo '<p class="member__function">'.$member_function.'</p>';
+                        echo '</div>';
+                        echo '<img class="icon icon-arrow-right" src="'.get_bloginfo('template_directory').'/images/icons/icon-arrow-right.svg" alt=""/>';
                     echo '</div>';
 
                 if ($member_page_link):

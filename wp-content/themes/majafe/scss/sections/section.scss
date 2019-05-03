@@ -12,13 +12,44 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.section-content-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:column;
+  flex-direction:column;
+
+  @media (min-width: $screen-sm) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
+
+}
+
+.section-content-col {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  width: 100%;
+
+  @media (min-width: $screen-sm) {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+  }
+}
+
 .section-title {
   text-transform: uppercase;
 }
 
 .section-subtitle {
   font-size: 0.6em;
-  font-weight: 400;
+  font-weight: 300;
   text-transform: none;
 
   @media (min-width: $screen-lg) {
