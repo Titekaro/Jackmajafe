@@ -14,7 +14,8 @@ $(document).ready(function () {
         }
     );
 
-    video.el.on("touchstart", function () {
+    video.el.on("touchstart", function (e) {
+        e.stopPropagation();
         $(this).find('.thumb-hover').css('display', 'none');
     });
 
