@@ -1,7 +1,7 @@
 .btn {
   display: inline-block;
   margin: 50px auto;
-  padding: 15px 40px;
+  padding: 1em 2.6em;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 
@@ -105,5 +105,11 @@
 }
 
 .btn--small {
+  padding: 0.68em 1.7em;
   font-size: 0.9em;
+}
+
+.btn--privacy {
+  margin-top: 0;
+  margin-bottom: 0;
 }
