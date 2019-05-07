@@ -22,6 +22,7 @@ if ($slides->have_posts()) :?>
                 <li class="slide" style="background-image: url('<?php the_field('slide_background'); ?>')">
                     <div class="slide-content-container">
                         <?php
+                        $slide_teaser = get_field('slide_teaser');
                         $slide_intro = get_field('slide_intro');
                         $slide_title = get_field('slide_title');
                         $slide_subtitle = get_field('slide_subtitle');
@@ -30,8 +31,11 @@ if ($slides->have_posts()) :?>
                         $slide_btn_text = get_field('slide_button_text');
                         $slide_btn_link = get_field('slide_button_link');
 
+                        if ($slide_teaser) :
+                            echo '<p class="h1 slide-content__teaser">' . $slide_teaser . '</p>';
+                        endif;
                         if ($slide_intro) :
-                            echo '<p class="h4 slide-content__intro">' . $slide_intro . '</p>';
+                            echo '<p class="h5 slide-content__intro">' . $slide_intro . '</p>';
                         endif;
 
                         if ($slide_title) :
@@ -39,7 +43,7 @@ if ($slides->have_posts()) :?>
                         endif;
 
                         if ($slide_subtitle) :
-                            echo '<p class="h4 slide-content__subtitle">' . $slide_subtitle . '</p>';
+                            echo '<p class="h5 slide-content__subtitle">' . $slide_subtitle . '</p>';
                         endif;
 
                         if ($slide_place) :
