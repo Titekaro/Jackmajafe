@@ -1,26 +1,64 @@
+.members-template-default {
+  background-color: $brand-color-secondary;
+
+  .navbar {
+    background-color: $brand-color-tertiary-dark;
+  }
+}
+
 .member-content {
   margin-bottom: 55px;
 }
 
 .member-content-row {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .member-content-col {
   @media (min-width: $screen-sm) {
     padding-right: 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
   }
 }
 
 .member__text {
+  color: $text-color-primary;
   text-align: left;
+  -webkit-font-smoothing: initial;
+
+  > p {
+    color: inherit;
+  }
+}
+
+.member-title {
+  position: relative;
+
+  color: $text-color-primary;
+  text-transform: uppercase;
+
+  &:before {
+    content: 'Bio';
+    position: absolute;
+    top: -0.4em;
+    left: -0.4em;
+    opacity: .1;
+
+    font-size: 1.7em;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
 }
 
 .member__image {
   margin-top: 55px;
-  opacity: .8;
+  opacity: .85;
 
   > img {
+    display: block;
     width: 100%;
   }
 

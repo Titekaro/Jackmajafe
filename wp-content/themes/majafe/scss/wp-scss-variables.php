@@ -20,6 +20,7 @@ function wp_scss_set_variables() {
     $variables = array(
         //Colors
         'text-color-base' => '#fff',
+        'text-color-primary' => '#000',
 
         'brand-color-base' => '#000',
         'brand-color-primary' => '#000',
