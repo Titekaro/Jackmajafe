@@ -1,5 +1,7 @@
 .single-page {
-  padding-top: $navbar-height;
+  padding-top: $navbar-height *1.5;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 
 .policy-content {
