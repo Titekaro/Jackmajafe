@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html lang="en-US">
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <title>
@@ -7,6 +7,27 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Jack Majafe">
+    <meta name="description" content="Music band focused on Reggaeton music. Get the latest news about Jack Majafe, including tour dates agenda and new singles.">
+    <meta name="language" content="English">
+    <meta name="author" content="Jack Majafe">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.jackmajafe.com/">
+    <meta property="og:title" content="Jack Majafe">
+    <meta property="og:description" content="Get the latest news about the Jack Majafe music band, including tour dates agenda and new singles.">
+    <meta property="og:image" content="<?php echo get_bloginfo('template_directory').'/images/sharing-image.jpg'?>">
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.jackmajafe.com/">
+    <meta property="twitter:title" content="Jack Majafe">
+    <meta property="twitter:description" content="Get the latest news about the Jack Majafe music band, including tour dates agenda and new singles.">
+    <meta property="twitter:image" content="<?php echo get_bloginfo('template_directory').'/images/sharing-image.jpg'?>">
+
     <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
     <?php wp_head(); ?>
 </head>
