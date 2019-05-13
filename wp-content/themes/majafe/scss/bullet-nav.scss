@@ -38,4 +38,17 @@
     }
   }
 
+  @media (hover: none) {
+    &:hover {
+      > .bullet {
+        background-color: transparent;
+      }
+    }
+    &.active {
+      > .bullet {
+        background-color: $brand-color-secondary;
+      }
+    }
+  }
+
 }
