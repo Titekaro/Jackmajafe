@@ -49,6 +49,88 @@ $(document).ready(function () {
     };
     autoPlay();
     /**
+     * Set up a vanilla swipe detection
+     */
+    var xDown = null;
+    var yDown = null;
+    /**
+     * Initialize the touch gesture recognition
+     * @returns {Touch[] | TouchList}
+     */
+    var getTouches = function(e) {
+        return e.touches ||             // browser API
+            e.originalEvent.touches; // jQuery
+    };
+    /**
+     * Get the first touch coords
+     */
+    var handleTouchStart = function(e) {
+        const firstTouch = getTouches(e)[0];
+        xDown = firstTouch.clientX;
+        yDown = firstTouch.clientY;
+    };
+    /**
+     *
+     */
+    var handleTouchMove = function(e) {
+
+        if (!xDown || !yDown) {
+            return;
+        }
+
+        var xUp = e.touches[0].clientX;
+        var yUp = e.touches[0].clientY;
+        var xDiff = xDown - xUp;
+        var yDiff = yDown - yUp;
+
+        if (Math.abs(xDiff) > Math.abs( yDiff )) {
+            if (xDiff > 0) {
+                /* left swipe */
+                i = $(this).index();
+
+                if (i === slide.length - 1) {
+                    i = 0;
+                } else {
+                    i = i + 1;
+                }
+                activeSlide = slide.eq(i);
+                toggleActive();
+                clearInterval(sliderInterval);
+                autoPlay();
+
+            } else {
+                /* right swipe */
+                i = $(this).index();
+
+                if (i === 0) {
+                    i = slide.length - 1;
+                } else {
+                    i = i - 1;
+                }
+                activeSlide = slide.eq(i);
+                toggleActive();
+                clearInterval(sliderInterval);
+                autoPlay();
+            }
+        } else {
+            if ( yDiff > 0 ) {
+                /* up swipe */
+                return;
+            } else {
+                /* down swipe */
+                return;
+            }
+        }
+        /* reset values */
+        xDown = null;
+        yDown = null;
+    };
+    /**
+     * Bind the touch events on slides
+     */
+    slide.bind('touchstart', handleTouchStart);
+    slide.bind('touchmove', handleTouchMove);
+    /**
      * Pass to the next slide when we click to the next btn.
      */
     sliderControl.next.on('click', function () {
