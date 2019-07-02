@@ -10,27 +10,33 @@ $(document).ready(function () {
      * @type {number}
      */
     var i = 0;
-    var activeEventGroup = event.group.eq(i).addClass('active');
+    var activeEventGroup = event.group.eq(i);
+    activeEventGroup.addClass('active');
     event.bullet.eq(i).addClass('active');
 
-    var slideWidth = function () {
+    /**
+     * This function will display the targeted slide via a transition animation.
+     */
+    var displayActiveSlide = function () {
         eventGroupWidth = event.group.outerWidth();
 
         event.groupList.css({
             "transform": "translateX(-" + eventGroupWidth * i + "px)",
             "-webkit-transform": "translateX(-" + eventGroupWidth * i + "px)",
-            "transition": "none",
-            "-webkit-transition": "none"
+            "transition": "transform .6s ease-in-out",
+            "-webkit-transition": "transform .6s ease-in-out"
         });
 
     };
-    slideWidth();
+    displayActiveSlide();
 
     $(window).on('resize', function () {
-        slideWidth();
+        displayActiveSlide();
     });
 
     var toggleActive = function () {
+        activeEventGroup = event.group.eq(i);
+
         if (event.bullet.hasClass('active')) {
             event.bullet.removeClass('active');
         }
@@ -44,17 +50,11 @@ $(document).ready(function () {
 
     /**
      * Add an event listener on the bullet nav.
+     * Define the id of the dates to show, corresponding to the id of the clicked bullet.
      */
     event.bullet.on('click', function () {
-        // Define the id of the dates to show, corresponding to the id of the clicked bullet.
         i = $(this).index();
-        activeEventGroup = event.group.eq(i);
-        event.groupList.css({
-            "transform": "translateX(-" + eventGroupWidth * i + "px)",
-            "-webkit-transform": "translateX(-" + eventGroupWidth * i + "px)",
-            "transition": "transform .6s ease-in-out",
-            "-webkit-transition": "transform .6s ease-in-out"
-        });
+        displayActiveSlide();
         toggleActive();
     });
 
@@ -104,13 +104,7 @@ $(document).ready(function () {
                     i = i + 1;
                 }
 
-                activeEventGroup = event.group.eq(i);
-                event.groupList.css({
-                    "transform": "translateX(-" + eventGroupWidth * i + "px)",
-                    "-webkit-transform": "translateX(-" + eventGroupWidth * i + "px)",
-                    "transition": "transform .6s ease-in-out",
-                    "-webkit-transition": "transform .6s ease-in-out"
-                });
+                displayActiveSlide();
                 toggleActive();
 
             } else {
@@ -123,13 +117,7 @@ $(document).ready(function () {
                     i = i - 1;
                 }
 
-                activeEventGroup = event.group.eq(i);
-                event.groupList.css({
-                    "transform": "translateX(-" + eventGroupWidth * i + "px)",
-                    "-webkit-transform": "translateX(-" + eventGroupWidth * i + "px)",
-                    "transition": "transform .6s ease-in-out",
-                    "-webkit-transition": "transform .6s ease-in-out"
-                });
+                displayActiveSlide();
                 toggleActive();
             }
         } else {
@@ -148,4 +136,32 @@ $(document).ready(function () {
 
     event.group.bind('touchstart', handleTouchStart);
     event.group.bind('touchmove', handleTouchMove);
+
+    /**
+     * This function will target the first event group that has not only past dates.
+     * To display it as the first active slide.
+     */
+    if (event.groupList) {
+        event.group.each(function () {
+            var el = $(this).find('.events-list');
+
+            if (el) {
+                var dateEl = el.find('.event__item');
+                var pastEl = el.find('.event__item.event__item--past');
+
+                if (dateEl.length !== pastEl.length) {
+                    i = $(this).index();
+                    displayActiveSlide();
+                    toggleActive();
+                    return false;
+                } else {
+                    i = $(this).index();
+                    displayActiveSlide();
+                    toggleActive();
+                }
+            }
+
+        });
+    }
+
 });
