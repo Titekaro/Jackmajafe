@@ -1,13 +1,1 @@
-header {
-  position: absolute;
-  width: 100%;
-}
-.logo-container {
-  display: flex;
-  align-items: center;
-  margin: 0 35px 0 0;
-}
-.logo {
-  width: 40px;
-  height: auto;
-}
+header{position:absolute;width:100%}/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22sourceRoot%22%3A%22%5C%2F%22%2C%22sources%22%3A%5B%22wp-content%5C%2Fthemes%5C%2Fmajafe%5C%2Fscss%5C%2Fheader.scss%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAAD%2COAAA%2C4BAAA%2CAAAA%22%7D */
