@@ -32,7 +32,7 @@ if ($home_slider):
 
     $slides = new WP_Query(array(
         'post_type' => 'slider',
-        'post_status' => 'any'
+        'post_status' => 'publish'
     ));
 
     $countSlides = $slides->found_posts;
@@ -42,18 +42,28 @@ if ($home_slider):
 <div class="slider-container">
 
     <ol class="slider">
-        <?php while ($slides->have_posts()) : $slides->the_post(); ?>
-            <li class="slide" style="background-image: url('<?php the_field('slide_background'); ?>')">
+        <?php while ($slides->have_posts()) : $slides->the_post();
+            $slide_bg = get_field('slide_background');
+            $slide_video = get_field('slide_video');
+            $slide_teaser = get_field('slide_teaser');
+            $slide_intro = get_field('slide_intro');
+            $slide_title = get_field('slide_title');
+            $slide_subtitle = get_field('slide_subtitle');
+            $slide_place = get_field('slide_place');
+            $slide_btn = get_field('slide_button');
+            $slide_btn_text = get_field('slide_button_text');
+            $slide_btn_link = get_field('slide_button_link');
+            ?>
+            <li class="slide" style="background-image: url('<?php echo $slide_bg; ?>')">
+
+            <?php if ($slide_video): ?>
+                <video class="slide__video" autoplay muted loop>
+                    <source src="<?php echo $slide_video; ?>" type="video/mp4">
+                </video>
+            <?php endif; ?>
+
                 <div class="slide-content-container">
                 <?php
-                $slide_teaser = get_field('slide_teaser');
-                $slide_intro = get_field('slide_intro');
-                $slide_title = get_field('slide_title');
-                $slide_subtitle = get_field('slide_subtitle');
-                $slide_place = get_field('slide_place');
-                $slide_btn = get_field('slide_button');
-                $slide_btn_text = get_field('slide_button_text');
-                $slide_btn_link = get_field('slide_button_link');
 
                 if ($slide_teaser) :
                     echo '<p class="h1 slide-content__teaser">' . $slide_teaser . '</p>';
