@@ -30,6 +30,7 @@ if ( $page->have_posts() ) : $page->the_post();
 
 echo '<div class="section-content-container music-content-container">';
     echo '<div class="section-content music-content">';
+
         echo '<div class="music-content__intro">';
 
             if ($section_title):
@@ -60,12 +61,17 @@ echo '<div class="section-content-container music-content-container">';
             echo '<ol class="music-item-list">';
 
             foreach ($music_item as $music):
+                $music_cover_bg = $music['music_cover_bg'];
                 $music_cover = $music['music_cover'];
                 $music_teaser = $music['teaser_text'];
                 $music_title = $music['music_title'];
                 $music_btns = $music['music_btns'];
 
                 echo '<li class="music__item">';
+
+                    echo '<div class="music-cover-bg-wrapper">';
+                    echo '<img class="music-cover-bg" src="'; if ($music_cover_bg): echo $music_cover_bg; else: echo $music_cover; endif; echo '">';
+                    echo '</div>';
 
                     echo '<div class="music-cover" style="background-image: url('.$music_cover.')"></div>';
                     echo '<p class="music-teaser">';
