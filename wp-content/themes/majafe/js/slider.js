@@ -1,25 +1,33 @@
 $(document).ready(function () {
     var scrollDownEl = $('.scroll-down');
     var sliderInterval;
-    var slide = $('.slide');
+    var slide = {
+        el: $('.slide'),
+        active: $('.slide.active')
+    };
     var sliderControl = {
         next: $('.slider-container .slide-control-next'),
         prev: $('.slider-container .slide-control-prev')
     };
     var bullet = $('.slide-nav__bullet');
+    var videoEl;
+    var autoPlay;
     /**
      * Initialize current slide to first.
      * @type {number}
      */
     var i = 0;
-    var activeSlide = slide.eq(i).addClass('active');
+    var activeSlide = slide.el.eq(i).addClass('active');
     bullet.eq(i).addClass('active');
+
     /**
-     *
+     * Toggle an 'active' class on bullets and slides
      */
     var toggleActive = function () {
-        if (slide.hasClass('active')) {
-            slide.removeClass('active');
+        activeSlide = slide.el.eq(i);
+
+        if (slide.el.hasClass('active')) {
+            slide.el.removeClass('active');
         }
         activeSlide.addClass("active");
 
@@ -32,22 +40,48 @@ $(document).ready(function () {
      * Active the next slide.
      */
     var autoLoop = function () {
-        if (i < slide.length - 1) {
+        if (i < slide.el.length - 1) {
             i = i + 1;
         }
-        else if (i === slide.length - 1) {
+        else if (i === slide.el.length - 1) {
             i = 0;
         }
-        activeSlide = slide.eq(i);
         toggleActive();
+        detectVideo();
     };
     /**
-     * Set the autoplay of the slider.
+     * Stop video
      */
-    var autoPlay = function () {
-        sliderInterval = setInterval(autoLoop, 6000);
+    var stopVideo = function () {
+        videoEl = $('.slide video');
+
+        if(videoEl.length) {
+            videoEl.off();
+            videoEl[0].pause();
+            videoEl[0].currentTime = 0;
+        }
     };
-    autoPlay();
+    /**
+     * Manage the slider loop control if it contains video.
+     */
+    var detectVideo = function () {
+        stopVideo();
+        activeSlide = slide.el.eq(i);
+        videoEl = activeSlide.children('video');
+
+        if (videoEl.length)  {
+            videoEl[0].currentTime = 0;
+            videoEl[0].play();
+
+            videoEl.on('ended', function () {
+                autoLoop();
+                $(this).off();
+            });
+        } else {
+            autoPlay = setTimeout(autoLoop, 6000);
+        }
+    };
+    detectVideo();
     /**
      * Set up a vanilla swipe detection
      */
@@ -88,29 +122,27 @@ $(document).ready(function () {
                 /* left swipe */
                 i = $(this).index();
 
-                if (i === slide.length - 1) {
+                if (i === slide.el.length - 1) {
                     i = 0;
                 } else {
                     i = i + 1;
                 }
-                activeSlide = slide.eq(i);
+                clearTimeout(autoPlay);
                 toggleActive();
-                clearInterval(sliderInterval);
-                autoPlay();
+                detectVideo();
 
             } else {
                 /* right swipe */
                 i = $(this).index();
 
                 if (i === 0) {
-                    i = slide.length - 1;
+                    i = slide.el.length - 1;
                 } else {
                     i = i - 1;
                 }
-                activeSlide = slide.eq(i);
+                clearTimeout(autoPlay);
                 toggleActive();
-                clearInterval(sliderInterval);
-                autoPlay();
+                detectVideo();
             }
         } else {
             if ( yDiff > 0 ) {
@@ -128,46 +160,46 @@ $(document).ready(function () {
     /**
      * Bind the touch events on slides
      */
-    slide.bind('touchstart', handleTouchStart);
-    slide.bind('touchmove', handleTouchMove);
+    slide.el.bind('touchstart', handleTouchStart);
+    slide.el.bind('touchmove', handleTouchMove);
     /**
      * Pass to the next slide when we click to the next btn.
      */
-    sliderControl.next.on('click', function () {
-        if (i === slide.length - 1) {
+    sliderControl.next.on('click', function (e) {
+        e.stopPropagation();
+        if (i === slide.el.length - 1) {
             i = 0;
         } else {
             i = i + 1;
         }
-        activeSlide = slide.eq(i);
+        clearTimeout(autoPlay);
         toggleActive();
-        clearInterval(sliderInterval);
-        autoPlay();
+        detectVideo();
     });
     /**
      * Pass to the preview slide when we click to the prev btn.
      */
-    sliderControl.prev.on('click', function () {
+    sliderControl.prev.on('click', function (e) {
+        e.stopPropagation();
         if (i === 0) {
-            i = slide.length - 1;
+            i = slide.el.length - 1;
         } else {
             i = i - 1;
         }
-        activeSlide = slide.eq(i);
+        clearTimeout(autoPlay);
         toggleActive();
-        clearInterval(sliderInterval);
-        autoPlay();
+        detectVideo();
     });
     /**
      * Add an event listener on the bullet nav.
      */
-    bullet.on('click', function () {
+    bullet.on('click', function (e) {
+        e.stopPropagation();
         // Define the id of the slide to show, corresponding to the id of the clicked bullet.
         i = $(this).index();
-        activeSlide = slide.eq(i);
+        clearTimeout(autoPlay);
         toggleActive();
-        clearInterval(sliderInterval);
-        autoPlay();
+        detectVideo();
     });
 
     var toggleScrollDown = function () {

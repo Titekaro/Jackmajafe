@@ -57,7 +57,7 @@ if ($home_slider):
             <li class="slide" style="background-image: url('<?php echo $slide_bg; ?>')">
 
             <?php if ($slide_video): ?>
-                <video class="slide__video" autoplay muted loop>
+                <video class="slide__video" muted>
                     <source src="<?php echo $slide_video; ?>" type="video/mp4">
                 </video>
             <?php endif; ?>
