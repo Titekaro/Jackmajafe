@@ -1,0 +1,14 @@
+.section {
+  min-height: 100vh;
+}
+.section-content-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+.section-title {
+  text-transform: uppercase;
+}
