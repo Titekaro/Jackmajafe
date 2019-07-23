@@ -1,0 +1,27 @@
+.bullet-nav {
+  margin: 0;
+  padding: 0;
+}
+.bullet-nav__item {
+  display: inline-block;
+  padding: 0 5px;
+  list-style: none;
+  cursor: pointer;
+}
+.bullet-nav__item > .bullet {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-in;
+  -moz-transition: background-color 0.2s ease-in;
+  -webkit-transition: background-color 0.2s ease-in;
+}
+.bullet-nav__item:hover > .bullet, .bullet-nav__item:focus > .bullet, .bullet-nav__item:active > .bullet {
+  background-color: #fff;
+}
+.bullet-nav__item.active > .bullet {
+  background-color: #fff;
+}
